@@ -1,0 +1,72 @@
+<table  >
+	
+		 	<td>
+		 	<fieldset>
+  				<legend> Formulario para incripcion candidato a diputado </legend>
+  				<label> Elija su partido Politico</label><select name="Partido" size="1" onchange="cargarBandera(this.options[this.selectedIndex].value);">
+				<option value=""></option>
+				<?php 
+				$sql="SELECT id_partidos,Nombre_del_Partido FROM partidos; ";
+  					$datos = consultaD($con,$sql);
+  					foreach ($datos as  $value) {
+  						print "<option value='";
+  						print $value['id_partidos']."'";
+  						print">";
+  						print $value['Nombre_del_Partido'];
+  						print "</option>";
+  					}
+				?>
+				</select>
+
+				<div id="divBandera"></div>
+			
+				<br>
+				<label>N° de DUI:</label> <input type="text" name="DUI" value='<?php if(isset($_POST["DUI"])){echo $_POST["DUI"];} ?>' placeholder="Numero de DUI">
+				<br>
+   				<label>Nombre:</label><input type="text" name="nombre" placeholder="Nombre" value='<?php if(isset($_POST["nombre"])){echo $_POST["nombre"];} ?>'>
+   				<br>
+   				<label>Apellido:</label><input type="text" name="apellido" value='<?php if(isset($_POST["apellido"])){echo $_POST["apellido"];} ?>'placeholder="Apellidos">
+   				<br>
+   				<label>Tipo de candidatura</label><select name="Tipo candidatura" onchange="alert(this.options[this.selectedIndex].value)" size="1" title="Seleccione el tipo de candidatura"/></p>
+				<option value=" "> </option>
+				<?php
+					$sql="SELECT id_candidatura,Tipo_candidatura FROM candidatura ";
+					$datos = consultaD($con,$sql);
+					foreach ($datos as $value) {
+						print "<option value='";
+						print $value['id_candidatura'];
+						print "'>";
+						print $value['Tipo_candidatura'];
+						print "</option>";
+
+					}
+				?>
+				</select>
+				<br>
+		<label>Pais</label><select name="Pais" size="1">
+				<option value="" label="EL SALVADOR"></option>
+				</select>
+				<label>Departamento</label><select name="Departamento" size="1" onchange="cargarMunicipio(this.options[this.selectedIndex].value);">
+				<option value=""></option>
+				<?php
+				$sql="SELECT id_departamento,Departamento FROM departamentos ";
+				$datos = consultaD($con,$sql);
+  					foreach ($datos as  $value) {
+  						print "<option value='";
+  						print $value['id_departamento']."'";
+  						print">";
+  						print $value['Departamento'];
+  						print "</option>";
+					}
+
+				?>
+				</select>
+			
+					<label>Municipio</label><div id="municipios" >
+				</select>
+				
+ 			</fieldset>
+ 			<br>
+ 			<input type="submit" name="envio" value="Abrir eleciones" onclick= "verificonumero()" >
+ 			</td>
+		</table>

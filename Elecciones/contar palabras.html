@@ -1,0 +1,65 @@
+<html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Contar caracteres y palabras</title>
+<script type="text/javascript">
+function wordCount() {
+  // Función que nos va a contar el número de caracteres 
+  // y de palabras del area de texto de un formulario
+
+  // Obtenemos el texto del area.
+  textoArea = document.getElementById("hola").value;
+
+  // El numero de caracteres es su longitud
+  numeroCaracteres = textoArea.length;
+
+  // Eliminamos los caracteres en blanco del inicio y del final.
+  // Como no tenemos funciones del tipo trim, rtrim y ltrim usamos
+  // expresiones regulares
+  // El ^ indica principio de cadena
+  inicioBlanco = /^ /
+  // El $ indica final de cadena
+  finBlanco = / $/
+  // El global (g) es para obtener todas las posibles combinaciones
+  variosBlancos = /[ ]+/g 
+
+  textoArea = textoArea.replace(inicioBlanco,"");
+  textoArea = textoArea.replace(finBlanco,"");
+  textoArea = textoArea.replace(variosBlancos," ");
+
+  // Creamos un array con las diferentes palabras. Teniendo en 
+  // cuenta que la separación entre palabras es el espacio en blanco.
+  textoAreaDividido = textoArea.split(" ");
+  numeroPalabras = textoAreaDividido.length;
+
+  // Mostramos los datos.
+  // Tendremos en cuenta si hay que escribir en plural o en singular.
+  tC = (numeroCaracteres==1)?" carácter":" caracteres";
+  tP = (numeroPalabras==1)?" palabra":" palabras";
+     
+  alert (numeroCaracteres + tC +"\n" + numeroPalabras + tP);
+document.getElementById('palabra').innerHTML= numeroCaracteres ;
+if (numeroCaracteres<6) { alert("necesita ingresar almenos 9")}; 
+ }
+</script>
+
+</head>
+<body>
+<h1>Contar caracteres y palabras</h1>
+
+
+<FORM ID="formulario" ACTION="#">
+
+<INPUT type= "text" id="hola">
+<label>Los caracteres utilizados son </label><label id="palabra"></label>
+<INPUT TYPE="button" VALUE="Contar las palabras" onClick="wordCount();">
+</FORM>
+
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/2008/03/05/contar-caracteres-y-palabras-en-javascript/">http://lineadecodigo.com/2008/03/05/contar-caracteres-y-palabras-en-javascript/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
+</html>

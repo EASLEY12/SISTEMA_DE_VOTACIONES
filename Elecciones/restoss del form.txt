@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<TITLE>TSE</title>
+		<link rel=stylesheet href="prototipo1.css" type="text/css">
+	</head>
+		
+	<body>
+<div id="M">
+	
+
+		  <br><a href='Registrar usuario.php'>registrar nuevo usuario</a>"
+
+		</div>
+		<form action="" method="post">
+		<figure>
+   			<img src="tse_logo.gif"><figcaption>Tribunal Supremo Electoral</figcaption>
+		</figure>
+		<br>
+		<h1> Bienvenido al sistemas de votaciones <br>a continuacion elija el tipo de eleccion a realizar</h1>
+		<table  >
+		 	<td>
+		 	<fieldset>
+  				<legend>Selecione el tipo de eleccion</legend>
+
+   				<input type='checkbox' name='Presidente' id="p" value='1'  onclick="if(this.checked==true){window.open('inscrincion de presidentes.html')}"> Presidenciales
+  				<br>
+  				<input type='checkbox'name='Alcalde' value='2' onclick="if(this.checked==true){window.open('inscrincion de presidentes.html')}"> Municipales
+  				<br>
+  				<input type='checkbox' name='Diputados' value='3'  onclick="if(this.checked==true){window.open('inscrincion de presidentes.html')}"> Legislativas
+ 				<br>
+ 				<input type="" name="anio" placeholder="año de Eleciones">
+ 			</fieldset>
+ 			<br>
+ 			<input type="submit" name="envio" value="Abrir eleciones" >
+ 			</td>
+		</table>
+
+		</form>
+
+	</body>
+</html>
